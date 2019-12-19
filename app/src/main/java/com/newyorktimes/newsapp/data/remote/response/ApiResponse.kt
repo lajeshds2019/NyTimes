@@ -45,7 +45,7 @@ data class ApiResponse <out T>(
 
                 is HttpException -> {
                     try {
-                        val apiErrorResponse: ErrorResponse = Gson().fromJson(it.response().errorBody()?.string(), ErrorResponse::class.java)
+                        val apiErrorResponse: ErrorResponse = Gson().fromJson(it.response()?.errorBody()?.string(), ErrorResponse::class.java)
                         if (!TextUtils.isEmpty(apiErrorResponse.errorCode))
                             this.errorCode = apiErrorResponse.errorCode
                         if (!TextUtils.isEmpty(apiErrorResponse.errorDescription))

@@ -83,7 +83,7 @@ class NewsListViewModel @Inject constructor(private val newsRepository: NewsRepo
      * Prepares the newslist observable for rendering
      * @param newsListResponse: NewsListResponse
      */
-    fun prepareNewsList(newsListResponse: NewsListResponse) {
+    private fun prepareNewsList(newsListResponse: NewsListResponse) {
         val newsItems = newsListResponse.popularNewsList?.let { it } ?: return
         for (newsItem in newsItems) {
             items.add(NewsItemViewModel(newsItem.title, newsItem.authors,

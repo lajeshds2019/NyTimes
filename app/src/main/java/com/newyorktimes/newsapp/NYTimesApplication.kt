@@ -25,7 +25,7 @@ class NYTimesApplication : Application(), HasActivityInjector {
     }
 
     companion object {
-        private var instance: NYTimesApplication? = null
+        var instance: NYTimesApplication? = null
         fun applicationContext(): Context {
             return instance!!.applicationContext
         }

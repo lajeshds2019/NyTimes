@@ -10,10 +10,10 @@ import io.reactivex.schedulers.Schedulers
  * Created on: 18/12/19
  * Modified on: 18/12/19
  *****/
-class SchedulerProvider : SchedulerContract {
+open class SchedulerProvider : SchedulerContract {
 
     override fun io(): Scheduler {
-        return Schedulers.newThread()
+        return Schedulers.io()
     }
 
     override fun ui(): Scheduler {

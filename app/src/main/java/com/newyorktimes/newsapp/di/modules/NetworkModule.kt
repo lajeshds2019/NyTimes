@@ -12,6 +12,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.CookieManager
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 /****
@@ -26,6 +27,10 @@ class NetworkModule {
     private val CONNECTION_TIMEOUT: Long = 30000
     private val READ_TIMEOUT: Long = 30000
     private val WRITE_TIMEOUT: Long = 3000
+
+    companion object {
+        private const val BASE_URL = "baseUrl"
+    }
 
     @Provides
     @Singleton
@@ -44,9 +49,9 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(@Named(BASE_URL) baseUrl: String, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(Configuration.baseURL)
+            .baseUrl(baseUrl)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)

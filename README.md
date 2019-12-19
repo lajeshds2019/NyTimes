@@ -6,6 +6,7 @@
 2. Unit test demonstration using JUnit, Mockito and PowerMockito
 3. Static code analysis report using Sonarqube
 4. Gradle scripts for running sonarqube static code analysis, code coverage, etc.
+5. More than 80% coverage for business logic
 
 
 The application has been designed using **Android Architecture components** and **Data Binding**
@@ -30,6 +31,11 @@ c) MVVM <br/>
 d) Retrofit with Okhttp <br/>
 e) JUnit and Mockito for Unit testing <br/>
 f) Repository pattern for Data Layer <br/>
+
+
+# Code Quality Report
+
+<img src="/screenshots/sonar_report.png"  alt="Sonar"/>
 
 # How to build ?
 

@@ -125,32 +125,6 @@ object FragmentUtils {
     }
 
 
-    /**
-     * The method for replacing a fragment allowing state loss
-     * @param activity : Parent Activity
-     * @param fragment: Fragment to be added
-     * @param id: Fragment container ID
-     * @param addToBackStack: Flag indicating whether to add to backstack or not
-     * @param animationType: Fragment transition animation type
-     */
-    fun replaceFragmentAllowingStateLoss(activity: AppCompatActivity, fragment: androidx.fragment.app.Fragment, id: Int, addToBackStack: Boolean, @FragmentAnimation animationType: Int) {
-        val fragManager = activity.supportFragmentManager
-        val transaction = fragManager.beginTransaction()
-        when (animationType) {
-            FragmentAnimation.TRANSITION_POP -> transaction.setCustomAnimations(R.anim.anim_enter, R.anim.anim_exit, R.anim.anim_pop_enter, R.anim.anim_pop_exit)
-            FragmentAnimation.TRANSITION_FADE_IN_OUT -> transaction.setCustomAnimations(R.anim.anim_frag_fade_in, R.anim.anim_frag_fade_out)
-            FragmentAnimation.TRANSITION_SLIDE_LEFT_RIGHT -> transaction.setCustomAnimations(R.anim.slide_in_from_rigth, R.anim.slide_out_to_left,
-                R.anim.slide_in_from_left, R.anim.slide_out_to_right)
-            FragmentAnimation.TRANSITION_SLIDE_LEFT_RIGHT_WITHOUT_EXIT -> transaction.setCustomAnimations(R.anim.slide_in_from_rigth, 0)
-            FragmentUtils.FragmentAnimation.TRANSITION_NONE -> transaction.setCustomAnimations(0,0)
-        }
-        if (addToBackStack)
-            transaction.addToBackStack(fragment.javaClass.canonicalName)
-
-        transaction.replace(id, fragment, fragment.javaClass.canonicalName)
-        transaction.commitAllowingStateLoss()
-    }
-
 
     /**
      * The method for replacing a fragment without any transition animatiom

@@ -3,8 +3,8 @@
 # Highlights
 
 1. MVVM Architectural pattern
-2. Unit test demonstration using JUnit and Mockito
-3. UI unit test demonstartion using Espresso
+2. Unit test demonstration using JUnit, Mockito and PowerMockito
+3. Static code analysis report using Sonarqube
 4. Gradle scripts for running sonarqube static code analysis, code coverage, etc.
 
 
@@ -20,6 +20,7 @@ The main advatage of using MVVM, there is no two way dependency between ViewMode
 # Screenshots
 <img src="/screenshots/listing.png" width="346" height="615" alt="Home"/> 
 <img src="/screenshots/details.png" width="346" height="615" alt="Home"/>
+<img src="/screenshots/filter.png" width="346" height="615" alt="Home"/>
 
 
 # Programming Practices Followed
